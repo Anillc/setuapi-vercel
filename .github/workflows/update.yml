@@ -1,0 +1,32 @@
+name: update
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  push
+
+jobs:
+  XD:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: npm install
+        run: npm install
+      - name: update
+        run: node updater.js
+      - name: commit setu
+        run: |
+          git config --local user.email "an@kano.cat"
+          git config --local user.name "Anillc"
+          git add -A
+          git commit -am "update setu.json" || true
+      - name: push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.PUSH_TOKEN }}
+          force: true

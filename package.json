@@ -1,0 +1,23 @@
+{
+  "name": "setuapi-vercel",
+  "version": "1.0.0",
+  "author": "anillc",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "parcel build src/pages_src/index.html -d public/",
+    "build-api": "coffee -o api/ -c src/api_src/",
+    "build-updater": "coffee -o ./updater.js -c src/updater.coffee"
+  },
+  "devDependencies": {
+    "@vue/component-compiler-utils": "^3.2.0",
+    "coffeescript": "^2.5.1",
+    "parcel": "^1.12.4",
+    "vue-template-compiler": "^2.6.12"
+  },
+  "dependencies": {
+    "superagent": "^6.1.0",
+    "vue": "^2.6.12",
+    "vue-hot-reload-api": "^2.3.4"
+  }
+}
