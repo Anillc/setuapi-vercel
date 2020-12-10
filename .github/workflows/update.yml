@@ -1,9 +1,9 @@
 name: update
 
 on:
-  schedule:
+  - schedule:
     - cron: '0 0 * * *'
-  push
+  - push
 
 jobs:
   XD:
