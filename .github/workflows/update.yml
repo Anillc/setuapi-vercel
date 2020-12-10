@@ -1,9 +1,11 @@
 name: update
 
 on:
-  - schedule:
+  schedule:
     - cron: '0 0 * * *'
-  - push
+  push:
+    branches:
+      - main
 
 jobs:
   XD:
